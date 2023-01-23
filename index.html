@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Frank Mungeri">
+  <meta name="description" content="A clever signup page, with illustration and optional signup with social media platforms.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="styles.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.2.1/css/all.css">
@@ -12,7 +14,7 @@
   <div class="blue bg"></div>
   <div class="gray bg"></div>
   <main>
-    <div class="section stats-section">
+    <section role="region" aria-label="Illustration" class="section stats-section">
       <div>
         <img class="logo" src="images/clever-logo.png" alt>
       </div>
@@ -28,12 +30,11 @@
             <hr />
             <hr />
          </div>
-
       </div>
-    </div>
-    <div class="section signup-section">
+    </section>
+    <section role="region" aria-labelledby="#heading" class="section signup-section">
       <div class="signup">
-        <h1>Create your account</h1>
+        <h1 id="heading">Create your account</h1>
         <p>It's free and easy</p>
         <form method="POST">
           <div class="field">
@@ -62,39 +63,13 @@
         </form>
         <hr />
         <div class="signup-with">
-          <a aria-label="Signup with Google" href="#"><img src="images/google.png" alt></a>
-          <a aria-label="Signup with Apple" href="#"><img src="images/apple.png" alt></a>
-          <a aria-label="Signup with Facebook" href="#"><img src="images/facebook.png" alt></a>
+          <a title="Signup with Google" aria-label="Signup with Google" href="#"><img src="images/google.png" alt></a>
+          <a title="Signup with Apple" aria-label="Signup with Apple" href="#"><img src="images/apple.png" alt></a>
+          <a title="Signup with Facebook" aria-label="Signup with Facebook" href="#"><img src="images/facebook.png" alt></a>
         </div>
       </div>
-    </div>
+    </section>
   </main>
-  <script>
-    const form = document.querySelector('form');
-    const button = form.querySelector('button[type="submit"]');
-    
-    form.onsubmit = (e) => {
-      e.preventDefault()
-      clearInputs();
-      form.classList.add('success');
-      button.innerText = "REGISTERED";
-      /**
-       * Submits to the cloud
-       */
-      setTimeout(() => {
-        form.classList.remove('success');
-        button.innerText = "Register";
-      }, 4000);
-    }
-
-    function clearInputs() {
-      const nameEl = form.querySelector('#name');
-      const idEl = form.querySelector('#identity');
-      const passwordEl = form.querySelector('#password');
-      nameEl.value = '';
-      idEl.value = '';
-      passwordEl.value = '';
-    }
-  </script>
+  <script src="main.js"></script>
 </body>
 </html>
